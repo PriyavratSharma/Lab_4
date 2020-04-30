@@ -10,7 +10,8 @@ import com.capg.gla.fs.model.Product;
 public interface ProductDaoImpl {
 	
 	public boolean create(Product product);
-	public List<Product> reterive();
-	
+	public List<Product> reterivev1();
+
 
 }
+

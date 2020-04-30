@@ -1,14 +1,15 @@
 package com.capg.gla.fs.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capg.gla.fs.dao.ProductDao;
 import com.capg.gla.fs.model.Product;
+import com.capg.gla.fs.model.ProductOld;
 
 
 
@@ -28,9 +29,22 @@ public class ProductService implements ProductServiceImpl {
 	}
 
 	@Override
-	public List<Product> reterive() {
-		// TODO Auto-generated method stub
-		return productDao.reterive();
+	public List<ProductOld> reterive() {
+		List<ProductOld> listproductold = new ArrayList<>();
+		
+		for (Product product : productDao.reterivev1()) {
+			ProductOld pr = new ProductOld();
+			pr.setProdId(product.getProdId());
+			pr.setProdName(product.getProdName());
+			pr.setProdPrice(product.getProdPrice());
+
+			listproductold.add(pr);
+	}
+		return listproductold;
+		}
+
+	@Override
+	public List<Product> reterivev1() {
+		return productDao.reterivev1();
 	}
 }
-

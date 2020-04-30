@@ -27,11 +27,10 @@ public class ProductDao implements ProductDaoImpl {
 	}
 
 	@Override
-	public List<Product> reterive() {
+	public List<Product> reterivev1() {
 		String Qstr = "SELECT product FROM Product product";
 		TypedQuery<Product> query = em.createQuery(Qstr, Product.class);
 
 		return query.getResultList();
 	}
-
 }
